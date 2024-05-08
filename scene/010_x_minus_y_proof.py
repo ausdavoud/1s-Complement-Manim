@@ -1,4 +1,4 @@
-from manim import *
+from manim import * # noqa
 from manim_slides import Slide
 
 class XMinusYProof(Slide):
@@ -17,8 +17,7 @@ class XMinusYProof(Slide):
         max_x = MathTex("Max(x) = 2^{n-1} - 1:", color=LIGHT_GREY).shift(UP + 2*LEFT)
 
         proof_line_1 = MathTex("2^{n-1} - 1", " + 2^{n-1} - 1", "=", "2(2^{n-1}) - 2").align_to(max_x, LEFT)
-        proof_line_2 = MathTex("= 2^n - 2 < 2^n").shift(DOWN).align_to(proof_line_1[2], LEFT)
-
+        proof_line_2 = MathTex("= 2^n - 2 < 2^n").shift(DOWN).align_to(proof_line_1[2], LEFT) # noqa
         
         self.play(Write(max_x))
         self.next_slide()

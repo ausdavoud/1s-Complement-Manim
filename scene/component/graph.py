@@ -1,4 +1,4 @@
-from manim import *
+from manim import * #noqa
 
 
 class ComplementGraph:

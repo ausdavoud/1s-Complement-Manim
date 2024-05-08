@@ -1,4 +1,4 @@
-from manim import *
+from manim import * #noqa
 from manim_slides import Slide
 
 from scene.component.graph import ComplementGraph

@@ -1,5 +1,5 @@
 from component.graph import ComplementGraph
-from manim import *
+from manim import * # noqa
 from manim_slides import Slide
 
 
