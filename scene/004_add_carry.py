@@ -4,17 +4,23 @@ from manim_slides import Slide
 # noqa: F405
 
 
-class AddCarry(Slide):
+class Carry(Slide):
     def construct(self):
-        pass
-        carry = MathTex("Carry").scale(4)
+        
+        title = (
+            Tex("1's Complement")
+            .scale(3 / 4)
+            .to_edge(UL)
+            .set_color_by_gradient(YELLOW, RED)
+        )
+        carry = (
+            Tex("Carry")
+            .scale(3 / 4)
+            .to_edge(UR)
+            .set_color_by_gradient(WHITE, GRAY)
+        )
 
-        # Animation Transform
-        ...
-
-        self.next_slide()
-        # Title to UR
-        self.play(carry.animate.scale(0.25).to_edge(UR))
+        self.add(title, carry)
 
         five_in_binary = MathTex("(0101)_{_{1sC}}").scale(2).shift(3 * UP)
         neg_three_in_binary = (
@@ -25,7 +31,7 @@ class AddCarry(Slide):
             plus_sign.get_left(), neg_three_in_binary.get_right()
         ).next_to(VGroup(neg_three_in_binary, plus_sign), DOWN)
         result_in_binary = (
-            MathTex("1", "000", "1")
+            MathTex("1", "000", "1", color=YELLOW)
             .scale(2)
             .next_to(addition_horizontal_line, DOWN)
             .align_to(neg_three_in_binary[1], RIGHT)
@@ -110,7 +116,7 @@ class AddCarry(Slide):
         arrow_result = Arrow(start=LEFT, end=RIGHT, color=GRAY_C).next_to(
             result_in_binary, RIGHT
         )
-        result = MathTex("Result").scale(2).next_to(arrow_result, RIGHT)
+        result = Tex("Result", color=YELLOW).scale(2).next_to(arrow_result, RIGHT)
 
         arrow_sixteen = Arrow(start=LEFT, end=RIGHT, color=GRAY_C).next_to(
             sixteen_in_binary, RIGHT
@@ -131,7 +137,8 @@ class AddCarry(Slide):
         self.next_slide()
 
         # add_carry_formula_group = VGroup(result, two_power_n, one)
-        add_carry_formula_group = MathTex("Result", "- 2^n", "+1").scale(2)
+        add_carry_formula_group = Tex(r"Result ", r"$ - 2^n$ ", r"$ + 1$").scale(2)
+        add_carry_formula_group[0].set_color(YELLOW)
         add_carry_formula_group[1].set_color(RED)
         add_carry_formula_group[2].set_color(GREEN)
 
@@ -157,22 +164,23 @@ class AddCarry(Slide):
 
         self.next_slide()
 
-        so_dotdotdot = MathTex("So...").move_to(carry)
-        rule_one = MathTex("1)\; Complement = ", "2^n - 1", " - Result")
+        so_dotdotdot = Tex("So...").set_color_by_gradient(WHITE, GRAY).move_to(carry)
+        rule_one = Tex(r"1) Complement $=$ ", r"$2^n - 1$", r" $-$ Number")
         rule_one[1].set_color(YELLOW)
+        rule_one[2].set_color(GREEN)
 
         rule_two = (
-            MathTex("2)\; Add\; Carry = ", "Result", "- 2^n", "+ 1")
+            Tex(r"2) Add Carry $=$ ", r"Result ", r"$ - 2^n$ ", r"$ + 1$")
             .next_to(rule_one, DOWN)
             .align_to(rule_one, LEFT)
         )
-
+        rule_two[1].set_color(YELLOW)
         rule_two[2].set_color(RED)
         rule_two[3].set_color(GREEN)
 
         anims = AnimationGroup(
             ReplacementTransform(carry, so_dotdotdot),
-            ReplacementTransform(add_carry_formula_group, rule_two),
+            TransformMatchingTex(add_carry_formula_group, rule_two),
             Write(rule_one),
             lag_ratio=0.3,
         )
@@ -186,11 +194,11 @@ class AddCarry(Slide):
         ))
 
 
-        when = Tex("When?").scale(4)
+        when = Tex("The Plane").scale(3)
         self.play(
             ReplacementTransform(so_dotdotdot, when)
         )
 
-        self.next_slide()
+        self.wait(2)
 
-        self.play(when.animate.scale(0.25).to_edge(UR))
+        self.play(when.animate.scale(1/4).to_edge(UR).set_color_by_gradient(WHITE, GRAY))

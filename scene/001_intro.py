@@ -19,12 +19,10 @@ class Intro(Slide):
             
         )
 
-        self.wait(1)
+        self.wait(2)
 
         self.play(
             section_title.animate.scale(1/4).to_edge(
                 UP + RIGHT
             ).set_color_by_gradient(WHITE, GRAY)
         )
-
-        self.wait(3)

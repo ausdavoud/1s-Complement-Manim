@@ -1,23 +1,43 @@
-from manim import * # 
-import math
+from manim import *  #
 from manim_slides import Slide
 
-class XMinusYProofWhen(Slide):
+
+class ThankYou(Slide):
     def construct(self):
-        ax = Axes(tips=False).add_coordinates()
-        plane = NumberPlane()
+        title = (
+            Tex("1's Complement")
+            .scale(3 / 4)
+            .to_edge(UL)
+            .set_color_by_gradient(YELLOW, RED)
+        )
 
-        t = ValueTracker(0.88)
-        def func(x):
-            return math.sqrt(abs(t.get_value() * math.cos(4*x) - x*x))
+        subtitle = (
+            Tex("Thank you!")
+            .scale(3 / 4)
+            .to_edge(UR)
+            .set_color_by_gradient(WHITE, GRAY)
+        )
+        self.add(title, subtitle)
 
-        graph = ax.plot(lambda x: func(x), x_range=[-2, 2], use_smoothing=False)
-        self.add(ax, plane)
-        self.play(Write(graph))
+        number_plane = NumberPlane(
+            x_range=[-30, 30],
+            y_range=[-30, 30],
+            x_length=15,
+            y_length=15,
+            background_line_style={
+                "stroke_color": DARK_GRAY,
+                "stroke_width": 4,
+                "stroke_opacity": 0.6,
+            }
+        )
+        self.play(Write(number_plane))
+        r = lambda theta: 4 * np.sin(24 * theta / 25) + 10
+        graph = number_plane.plot_polar_graph(r, [0, 60 * PI], color=[PURE_BLUE])
+        
 
-        # func = lambda pos: ((pos[0] * UR + pos[1] * LEFT) - pos) / 3
-        # self.play(StreamLines(func).create())
-        # thanks = Tex("Thank you for watching!", color=GREEN).scale(2).to_edge(DOWN)
+        self.play(Write(graph), run_time=10)
 
-        # self.play(Write(thanks))
+        # self.play(Write(MathTex("3")))
+        self.wait(3)
+
 

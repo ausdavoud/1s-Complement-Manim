@@ -4,8 +4,9 @@ from manim import * #noqa
 class ComplementGraph:
     """One's Complement Graph"""
 
-    def __init__(self, bit: int) -> None:
-        self.bit = bit
+    def __init__(self, order: int, binary_coordinates: bool = False) -> None:
+        self.bit = order
+        self.binary_coordinates = binary_coordinates
         self.max_x = 2 ** (self.bit - 1) - 1
         self.max_y = 2 ** (self.bit) - 1
         self.negative_color = PURPLE
@@ -13,6 +14,10 @@ class ComplementGraph:
         self.text_scale_factor = 0.7
         self.scale_factor = 0.95
 
+
+        y_pos = [x for x in range(1, self.max_y+1)]
+
+        # strings are automatically converted into a Tex mobject.
         self.graph: NumberPlane = (
             NumberPlane(
                 x_range=(-self.max_x, self.max_x),
@@ -23,11 +28,18 @@ class ComplementGraph:
                 background_line_style={"stroke_color": TEAL, "stroke_opacity": 0.5},
             )
             .scale(self.scale_factor)
-            .add_coordinates()
         )
 
+        if self.binary_coordinates:
+            y_vals = [format(num, "b").zfill(order) for num in y_pos]
+            y_labels = dict(zip(y_pos, y_vals))
+
+            self.graph.add_coordinates(None, y_labels, None)
+        else:
+            self.graph.add_coordinates()
+
         self.labels = self.graph.get_axis_labels(
-            Tex("B").scale(self.scale_factor), Tex("D").scale(self.scale_factor)
+            Tex("D").scale(self.text_scale_factor), Tex("C").scale(self.text_scale_factor)
         )
 
         self.dots = self.get_dots()
@@ -36,7 +48,7 @@ class ComplementGraph:
         self.control_box = (
             Rectangle(color=TEAL, height=2, width=3)
             .next_to(self.graph, RIGHT)
-            .shift(2.5 * UP)
+            .shift(1.5 * UP)
         )
 
         # X
@@ -203,16 +215,16 @@ class ComplementGraph:
         return anims
 
     def transform_negative_dots(self, negative_table: MathTable):
-        anims = self.transform_dots(negative_table, True)
+        anims = self.transform_dots(negative_table, False)
         anims = AnimationGroup(*anims, lag_ratio=0.3)
         return anims
 
-    def transform_dots(self, table: MathTable, margin: bool = False):
+    def transform_dots(self, table: MathTable, positive_half: bool = True):
         """Don't Use Explicitly"""
         anims = []
         for i in range(self.max_x + 1):
             table_row = VGroup(*[table.get_entries((i + 2, j)) for j in [1, 2]])
-            dot = self.dots[i + ((self.max_x + 1) * int(margin))]
+            dot = self.dots[i + ((self.max_x + 1) * int(positive_half))]
             anims.append(ReplacementTransform(table_row, dot))
 
         return anims
@@ -222,6 +234,7 @@ class ComplementGraph:
             self.graph,
             *self.dots,
             *self.lines,
+            self.labels,
             self.control_box,
             self.x_dec,
             self.x_tex,
@@ -239,6 +252,9 @@ class ComplementGraph:
             self.xy_height_dec,
             self.xy_line,
         )
+    
+    def change_coordinate(self):
+        return FadeOut(self.graph.coordinate_labels)
 
     def get_dots(self):
         dots = []
@@ -281,7 +297,7 @@ class ComplementGraph:
         return FadeIn(*self.lines)
 
     def show_graph(self):
-        return Write(self.graph)
+        return AnimationGroup(Write(self.graph), Write(self.labels))
 
     def show_control_box(self):
         return FadeIn(

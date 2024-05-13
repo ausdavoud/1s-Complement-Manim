@@ -4,8 +4,15 @@ from manim_slides import Slide
 
 class Example(Slide):
     def construct(self):
-        title = Tex("1's Complement").scale(3/4).to_edge(UL).set_color_by_gradient(YELLOW, RED)
-        subtitle = Tex("Example").scale(3/4).to_edge(UR).set_color_by_gradient(WHITE, GRAY)
+        title = (
+            Tex("1's Complement")
+            .scale(3 / 4)
+            .to_edge(UL)
+            .set_color_by_gradient(YELLOW, RED)
+        )
+        subtitle = (
+            Tex("Example").scale(3 / 4).to_edge(UR).set_color_by_gradient(WHITE, GRAY)
+        )
         self.add(title, subtitle)
 
         five = Integer(5).scale(2).shift(1.5 * UP).set_color(GREEN)
@@ -38,7 +45,7 @@ class Example(Slide):
 
         separator_line = DashedLine(
             start=five.get_top(), end=question_mark.get_bottom(), color=DARK_GRAY
-        ).shift(1.2*RIGHT)
+        ).shift(1.2 * RIGHT)
         self.play(Create(separator_line))
 
         five_in_binary = (
@@ -48,7 +55,10 @@ class Example(Slide):
             .set_color(GREEN)
         )
         neg_three_in_binary = (
-            MathTex(r"(", "1", "1", "0", "0", r")_{_{1sC}}").set_color(RED).scale(2).shift(RIGHT)
+            MathTex(r"(", "1", "1", "0", "0", r")_{_{1sC}}")
+            .set_color(RED)
+            .scale(2)
+            .shift(RIGHT)
         )
         plus_sign = MathTex("+").scale(2).next_to(neg_three_in_binary, LEFT)
         binary_horizontal_line = Line(
@@ -98,7 +108,6 @@ class Example(Slide):
         )
 
         self.play(anims)
-        self.next_slide()
 
         anims = AnimationGroup(
             Indicate(five_in_binary[3]),
@@ -151,7 +160,7 @@ class Example(Slide):
             result_second_bit.animate.move_to(result_first_bit),
         ]
 
-        self.wait(2)
+        self.wait(1)
 
         self.play(*anims)
 
@@ -183,3 +192,34 @@ class Example(Slide):
         )
 
         self.next_slide()
+
+        self.play(
+            FadeOut(
+                five,
+                negative_sign,
+                three,
+                horizontal_line,
+                two,
+                five_in_binary,
+                plus_sign,
+                neg_three_in_binary,
+                binary_horizontal_line,
+                result_first_bit,
+                result_second_bit,
+                result_third_bit,
+                result_forth_bit,
+                left_parenthesis,
+                right_parenthesis,
+                separator_line,
+                result_first_carry_bit       
+            )
+        )
+
+        complement = Tex("Complement").scale(3)
+        self.play(ReplacementTransform(subtitle, complement))
+        self.wait(2)
+        self.play(
+            complement.animate.scale(1 / 4)
+            .to_edge(UR)
+            .set_color_by_gradient(WHITE, GRAY)
+        )
