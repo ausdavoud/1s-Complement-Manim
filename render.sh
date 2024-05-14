@@ -13,4 +13,5 @@ manim-slides render scene/011_x_minus_y_proof_why.py
 manim-slides render scene/012_minus_x_minus_y_graph.py
 manim-slides render scene/013_minus_x_minus_y_proof.py
 
-manim-slides convert Intro Example Complement Carry Graph When XPlusYGraph XPlusYProof XMinusYGraph XMinusYProofWhen XMinusYProofWhy MinusXMinusYGraph MinusXMinusYProof 
+manim-slides convert Intro Example Complement Carry Graph When XPlusYGraph XPlusYProof XMinusYGraph XMinusYProofWhen XMinusYProofWhy MinusXMinusYGraph MinusXMinusYProof slides.html
+
