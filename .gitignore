@@ -1,5 +1,7 @@
 media
 slides
+.vscode
+ruff.toml
 scene/media
 scene/slides
 slides_assets
