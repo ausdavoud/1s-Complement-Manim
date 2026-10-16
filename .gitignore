@@ -10,3 +10,4 @@ __pycache__/
 .vscode
 .DS_Store
 ruff.toml
+.gh-pages/

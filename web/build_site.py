@@ -49,12 +49,17 @@ def main():
         ffmpeg("-ss", f"{duration(video) * 0.66:.2f}", "-i", str(video), "-frames:v", "1",
                "-vf", "scale=1280:-2", "-q:v", "3", str(PREVIEWS / f"{cls}.jpg"))
 
-    # the whole presentation as one video
+    # the whole presentation as one video, re-encoded: flat vector animation compresses
+    # to well under half the size of Manim's output without visible loss
     concat = SITE / "concat.txt"
+    joined = SITE / "joined.mp4"
     concat.write_text("".join(f"file '{v}'\n" for v in videos))
-    ffmpeg("-f", "concat", "-safe", "0", "-i", str(concat), "-c", "copy", "-movflags", "+faststart",
+    ffmpeg("-f", "concat", "-safe", "0", "-i", str(concat), "-c", "copy", str(joined))
+    ffmpeg("-i", str(joined), "-vf", "fps=30", "-c:v", "libx264", "-crf", "26", "-preset", "slow",
+           "-tune", "animation", "-pix_fmt", "yuv420p", "-movflags", "+faststart", "-an",
            str(SITE / "1s-complement.mp4"))
     concat.unlink()
+    joined.unlink()
 
     shutil.copy(ROOT / "web" / "index.html", SITE / "index.html")
     (SITE / ".nojekyll").touch()

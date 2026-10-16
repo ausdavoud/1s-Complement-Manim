@@ -3,6 +3,8 @@ from manim_slides import Slide
 
 
 class Complement(Slide):
+    skip_reversing = True
+
     def construct(self):
         title = (
             Tex("1's Complement")

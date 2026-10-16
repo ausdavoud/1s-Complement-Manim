@@ -4,6 +4,8 @@ from manim_slides import Slide
 
 
 class XMinusYGraph(Slide):
+    skip_reversing = True
+
     def construct(self):
         title = Tex("1's Complement").scale(3/4).to_edge(UL).set_color_by_gradient(YELLOW, RED)
 

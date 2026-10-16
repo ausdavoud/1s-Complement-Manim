@@ -3,6 +3,8 @@ from manim_slides import Slide
 
 
 class XMinusYProofWhy(Slide):
+    skip_reversing = True
+
     def construct(self):
         """
         x - y = x + 2^n - 1 - y

@@ -2,6 +2,8 @@ from manim import *
 from manim_slides import Slide
 
 class Intro(Slide):
+    skip_reversing = True
+
     def construct(self):
         title = Tex(r"1's Complement").scale(3).set_color_by_gradient(YELLOW, RED)
         by = Tex("By: Davoud Nosrati").next_to(title, DOWN, 1)

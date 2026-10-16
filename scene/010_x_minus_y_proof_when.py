@@ -2,6 +2,8 @@ from manim import * # noqa
 from manim_slides import Slide
 
 class XMinusYProofWhen(Slide):
+    skip_reversing = True
+
     def construct(self):
         """
         x - y >= 2^n

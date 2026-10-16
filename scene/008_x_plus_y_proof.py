@@ -2,6 +2,8 @@ from manim import * #noqa
 from manim_slides import Slide
 
 class XPlusYProof(Slide):
+    skip_reversing = True
+
     def construct(self):
         """
         max(x) = 2^n-1 -1 

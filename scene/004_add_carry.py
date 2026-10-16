@@ -5,6 +5,8 @@ from manim_slides import Slide
 
 
 class Carry(Slide):
+    skip_reversing = True
+
     def construct(self):
         
         title = (
