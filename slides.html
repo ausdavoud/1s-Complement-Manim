@@ -1,0 +1,988 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>1's Complement</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/theme/black.min.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s00_0576bd48a9be143cb05abf735b71f1abda07856d51179d18e98396ce3639ff10.mp4"
+          data-background-video-muted
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s00_5c460a657ac2372acb8410cf1ee7b39018db642b8f046f01e6c623fa8f425bef.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s01_1d12442973f40e70c13876c4c480659e539202c2920d1dac81749062e9e55ce0.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s01_2d29a04e690202dae2532eef323427c38fb0795ded2dcc48a8e42396cce8a673.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s01_2f15ed280ad805a23c905c9b3a00201a8fefd001abdd2e347006536c1e4fed01.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s01_7ec062e9b989d4ecb13aeffac1b3888feb53653384b3a2b428e44506e461a1c8.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s02_2ffdbe18f000c3c261c9149a3958ac01f9f0d051719964a4713373a8e5ac6823.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s02_59a6c042100182a709988b1808afe0d02aa396909568dfb2ac8f1ee5c8d07778.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s02_efea103243d32ee72f272e60ac1c3b62f8adf1d865ac5b2a7220a27b3e521614.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s02_d0a47fcd75a47598c80970213a88fda979da64959c3f1663c3eeeea7f64a0620.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s02_ee99a9d774490865065df3be477346f01a990f0bb02b8b636f5c357cb3f45234.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s02_5fdf132dee1a2f28860f005e2d1a8b07f17c19a06824d02914346f06004e068c.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s03_86f6cb34556f74c79b1bb4de4640435e4b3b67a96fb2908ac3cdf67a5674eb34.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s03_6841749b6a6e862ac14bb2a5523c60df9246a11aec2a6f7d3c269068b7cb5692.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s03_cc88fa38c1e3d10760083955ad2227e35fa231abe1a35f97b78c78e2538eee47.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s03_491e3ed4244dacdf51aa9ba5afaaf0e7a6002923046d729f23ab94f33d36bca8.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s03_6c56c07952bbb77caba67ff7b3760e8dba8c47113730a14e2bc3ea0d7ac731ea.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s03_94e9762c343c1e7be67afbe7815e9e7323312b6b970c58665b056b1b6a70fc14.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s03_f71179533ce9f0a937c36eefbb3dcc68e38f15de9a4889b9e322111b120651b9.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_38dc10e9de6246132eb2f41eacf29b067bdbbbbea01e468c4116ea09848443f7.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_5bea4d599b0538063a662d88819534e2839751dd61956f9611bc0ecfb2abae8b.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_a2fb696da7f9b0b3163fec7925ca49e7f7ed51f2079366d35be78e72177f3291.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_b198d0f27e716e058b4fbb3367101c900c283d9093d2f99bc8e6ab6f6759512f.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_7ddfab1a2ba81ae2b974d06508b8be376b63b579fa62158df0fd999845370460.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_a262c028a3829ee719d4df18e71e6699c155c7599663467a2229192d896b62b9.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_ab67c088bc29cc8486c419bc1882879becb5b813e5d9c0ed8c7959cd59e649ee.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_43cc1274b2e52555943345df349d84fb5dbe4dd7c4c16dca0aa92a5b8fc81545.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_f14267109151f1089b8c4700de655efd5e337e6c1ba4941e17700e94b5d5b4db.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_f059b8b10b25416f22abf445513ce57b805dd6bcf88a3b442a06dab9c8e0250a.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_3bc69e9bc87f35d6a380db968b82ac9d1737f7847bc4d39b273bde37b4e85db9.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_f92a2f32a1c5dfa4359a375092a5eb5cbb403e362f6b7c18d246df26fa0193b9.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s04_0e0249efa2d9bbb8d58e93bf3b60e5ac5d80c707d7eb464bf7f99b9944de5cc8.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s05_f315e8465f65e2fd70409dc39e4fbca03b9164d368c734acc6ac9d4f03d2cdb9.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s05_5a45f5ef70ced6043bcc3d6ba06ce7c944f494fa73d396947bc1ee1c63ceeb63.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s05_582886f99afd25d0a3dcb97b4e13edd6f6377488981b51745bdc9b5409d6e664.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s05_e5c55f4b3393619c5ff6e18f67db99069134483c4d39a2e590abc6eac805be35.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s05_32af5df46e2b517bc2fa44551f9cf0ae5e7558e591a4a70545c6c01a03cb86cd.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s05_711003dc41307789cd2a36dced8884922752128679a9b42ed5932b4f274cd09f.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s06_98969eb940717f425574c1e731831bd36cafb2b2296b9952e51aa5bced65bdd7.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s06_6fe63701b33b2223fd38c1f05b11d41ba436dfa43bc55e5055412d302639dd35.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s06_761513eff3ecac9afdf8444725f29e867c4cd9b982da7e6bd4154b89b0a43fdd.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s06_cbc7aa17d13a733af1b5ecaac913b6f6e3ec5043f1528c8750628b9ea0a7de61.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s06_f7ab5268b28d6525de8be9de2f1212fbf6e141fce94f9ec790403bcb68f568d2.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s06_5b9a1b578094a4291c2e6595ad0d83ec2860efc1891e2e56473ed3e3e9be42e8.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s06_cf09ed265a493b787f35ed918d70da96df614af2e9b68ba62390301e6d401755.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s06_a88d42e5c0ca92ccc6bbb56c2db3e040247f4fa35290a7e2c3c3970312733512.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s06_251ecef47bca38581057013e9a220ad37c401dab210119154acc663804ebd5de.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s06_40e97368dfa8a198ae182a8433205a4d56b5e1538508ca115825d7a318aecce4.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s07_8c996195f4c2a09ad785034efc7304054f16f162e3cafa3d1104f0133dbb4c15.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s07_7b9ed2eb9b3b352338283fb9c28ddd78cc01a265474b41587177637138151b7d.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s07_5f853b0e47b21eb1bae4b24718596bb2b7b258c32a2fd07cd366983332fb555e.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s07_3aff56e285afabcd3a62570afc667dd331906f3aff143e3cae4f2fd9b18039ce.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s07_65a64728baec4f9a14bdb11d70710c9fedff01d06c340f9d6deb11eca59b557b.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s07_bbe9844f879afea65375012f9835aab9a4018552df5547141bc16f44944145fa.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_c80b412cb9643814b994f9a5ce94a3d2c6a44d52cbff51365976651f2156046e.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_bea7c7925e1b5d0b8bca76f5947691b7bbf9c6d3739144d98bd314b42efc280e.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_ade17074023f4baed35cd5396cbad35124eafb24af24aa316757fe33a5b42441.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_618bd1ebe4ebaf9c4b6d8a4eb7bbbb4e1c58c868f3f15e1f8ffbfe79255ae67d.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_05b9010d09afb8eb02a9f9ff91dae2a364a950a99794cefd08b4789c4df2cbcf.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_671c1bfc6f757dd7910bdcc1b7d976ed57a67a83bd965c6e7cc0e7931f67bb14.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_b8a93b428c178ce7172fa24492556983052c72a6cb069559e728f135a811ea9c.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_d3c5357e6f030a453a8f6ad5c22eb4c0a4ffa3d5a26b05f0c159c631bde54fdd.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_d2195b2a21a6cc5743c3e6519e20128010094bc676b46b66fa33cf8be1470350.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_e3c2362fb4d0505eed6daea74028c3582f22e96777e5fb34fb5ef8cfcd684f81.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_3a196247371f0b66c22c37eb99efc9d9788f096fd072fe8279a615cc9d6e433f.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_df7871f31337349cc1869491c170776c82c32c626e367cbb1463c680ac18a04f.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_e5c2bb8955abe5b23524c5a18e0bce297136c52a513e18b19403a2b38714dbd0.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_31540ac2afd5d56d61f0a1cee5525ac7457d9bbbb34fd202a6ee7adc2fe72c6f.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_def9c45f5b63443de00b344dcdd363e9560f227b634b24cd277c4adbcf6b8273.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_4d39c1677d256c0f7279ff0d8dc5bd2b2ed0d7697b566ee500a8a38fa3235309.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_f513a623d5e15de39101d1473d9691889a4774a20f75cefc35fbf7573822ac4a.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_740e930fd129742fe83902b72f0b47c38910ea6ba1f94025d730991dadcfd1de.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_1b91fdb972a8790e20afb2ae87425213c925ee953cbe14cc9aca9d6d9db8e7d0.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_9089d6a8ea653f4e9b0619fee6411239acead2dd778e0df028d07417dd7e2e4b.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_12bc48ae0d8d86fa516cfdaa12a64122f60beeb701e7bcc0c76e078eb37a3e5c.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_86bc93191b856ce905ee623e5bcce3ef8f077a7a7e8ebfc51e8a177670abbbd5.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_15aaea82be6a257ad268adb127c141a7fd09c98ee1ec52dc347825b3830ef4a0.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_cd4a821d29b3e251b862a5ddee5cb7d304bc6e5c65aa1dd9d208d62c46b7151e.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_142064e0b61c5c03c393ef3f1169abebe2697fb36408bc2318df2721f06fbe6d.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_e317c24eb02f93d6a3719eff33020db532fed4b19c5a4f3737c8c129135be295.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_adcc8bf0fdf66e7af4ec350579fda99a9bcdb66024fc05d1dc9afb0046462b75.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_66015c1cb6b221363cb45e0294d553dc3998f7fb353454959b4234b23d9c98e8.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_e4c05d0cffaa80f50edee8360fb4820734ff09af6dae16b82e7f4643c5a0fae3.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s08_e62b93d034b979afe337fc57212f3e45224841069453f636442a9da1eaa84b0a.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s09_91d5cabe64d2f5f834cf0d5984c4b5d7c3494a8de4eb9c6da6b2e231ee7324eb.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s09_07eaf96a7c5fe1cb6981cbf8f8ccf10f5604e9259d83344a687513b3fbbb1374.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s09_a2fa62619b8097e2e6b9d6438a327d71a09a1fceca8831a9977a8847e51f705e.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s09_cac961ce113dca37eb2f1aa49004f806c4b867fa7be988d066a5b1f95481cae6.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s09_d7a7704196b391f10d30c102f7f8ea9b02653e42c8a27847b7a3e96fa9f5ec55.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s09_13a623a915de401e7ceef4e464fac12e5bedfb3f2ade10abf6dce81c07c1bd34.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s09_fc3cd2306461a9829cea954cc438c9fad85dc83f663ce4df0b7ee11cc6dd2fea.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s09_ccbb56e9e7779ad56581add0d94c7e38775abf4a6466bfbf85275239c86a3cfd.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s09_7ed7dfb51c57472abf4c0eb49938e54a384ea391522c91f575e8c20e532982e8.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_4fc0754cfbf7e8a47b72e21908fad95f109caa1ddf21684af1c30e57ad2e42d6.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_d6a6a04bb964a7a79e4ba225caabe9f8f64935ab1ace489ef78d873b249b502b.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_21211b89364cbd1478085276024c0adf6ba943033e1b44c72170079ceebc96c5.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_dc9a696a6f13aed54971d074b3ceb0c37f160be5320dd717df308db32ca22827.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_85d6b16f04799368b7e5f5eb5c1373264ef0a3cfb24b790618c15975e80dbebe.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_b5f755a597533026638fbb217829d7334ec6875a0399f1bb71f603bbb20a024b.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_7c6fa0f32b47315b194bdc7784383220e7ca94d30f5b366d59346c3e7d906452.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_4dee7781274b73ccd76dd4b4366798a76dafeca5bf8d1d0313f0cf40097ba67b.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_c1e235bd6b17f1d05da2ee4ade266595567c65b2ca480a4d3c51da34a99ffa10.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_25c45401e17b77d6da77c69359e18a2531eb486d21ca2a14eaac8daa70779d65.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s10_a7397e29b19ed08db006002bc2024842281bc8ac3417b194009cbc9f3d884fb8.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_d7cbed1b1ad17a5b88f05d352697fff906373847a4e057a88c39674e01f36be0.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_4e785e0181886cbcf8d7757bb3ac87c772ac6c8c5653de3af8476585066f9eb2.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_293cace6b8a7998a5b4ac61fb11b3605897fc6d30398933659f6c1d3e67f22cb.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_44348cfbb5c3af2651ff72d2d8b9f9b20a6c9aecfdb45fbbf56ee9b19b5091f5.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_d8479fe4fe5d838ff9dfec8d862852f7c0693fa97a038c8811f85e16c21211eb.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_1aaec3f8705f794a64f0c6e5260d3b48c2c4ffbc7b4ffee6d6e32beb0559410a.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_d8707ee5de28ba6f03530ef5df42fce1a8abbd8061cb72e901aa9b458980795d.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_6ccdfa0199e957561530efbdf03e2130964cb54241ce89f80a2c551b5ed009d3.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_563df671bf910a990f80d0254189c9501c45b53f5d3f2b90d1ea0a09cb4f8932.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_456b751810d66825407c6cc5e3c61e8ea067c9be5be10a237469f35cb8b87838.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s11_3162b76e46d3f94d721d2603378cf07c7874f72a99ce14e3b82cf9dd9467119d.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s12_1124dae20b3cd33ec81ae7a454772c0d32037c9257c1e943c59ee4b0c3dca372.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s12_5510a9f58648e3085c4b5180766b845c2614914e2e0fddb44a5d285f7ab8663e.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s12_0331407c389078438664c9a3fe7798d90e6b96c1e1829af753e8969be0b32f66.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s12_23187214aceea7707fc0d28275b1ac0dc9c08b477d688fbc41ff593d4ac597a9.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s12_5e806abd2aeb07b405ff42719c3c4f5f756f7e74e97f5cff217e17d4eb45cd8a.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s12_b16210ba41ec341029d433f8ec546d252a0f7415b286b25b37c767bfc596d6b2.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s12_ea586781b3cd9dd9e9a728885b82795411d79569ad5f3a8d3c250041013854c5.mp4"
+          >
+        </section>
+        <section
+          data-background-size='contain'
+          data-background-color="black"
+          data-background-video="slides_assets/s12_58b51f7db06cd0a0472cfb3bcb377cf4ceaf1cee5c9ce01c6ae4804a51bd59be.mp4"
+          >
+        </section>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.2.0/plugin/notes/notes.min.js"></script>
+
+    <!-- To include plugins, see: https://revealjs.com/plugins/ -->
+
+    <!-- <script src="index.js"></script> -->
+    <script>
+      Reveal.initialize({
+        // The "normal" size of the presentation, aspect ratio will
+        // be preserved when the presentation is scaled to fit different
+        // resolutions. Can be specified using percentage units.
+        width: '100%',
+        height: '100%',
+        // Factor of the display size that should remain empty around
+        // the content
+        margin: 0.04,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+        maxScale: 2.0,
+        // Display presentation control arrows
+        controls: true,
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        // - true:    Show slide number
+        // - false:   Hide slide number
+        //
+        // Can optionally be set as a string that specifies the number formatting:
+        // - "h.v":   Horizontal . vertical slide number (default)
+        // - "h/v":   Horizontal / vertical slide number
+        // - "c":   Flattened slide number
+        // - "c/t":   Flattened slide number / total slides
+        //
+        // Alternatively, you can provide a function that returns the slide
+        // number for the current slide. The function should take in a slide
+        // object and return an array with one string [slideNumber] or
+        // three strings [n1,delimiter,n2]. See #formatSlideNumber().
+        slideNumber: false,
+        // Can be used to limit the contexts in which the slide number appears
+        // - "all":      Always show the slide number
+        // - "print":    Only when printing to PDF
+        // - "speaker":  Only in the speaker view
+        showSlideNumber: 'all',
+        // Use 1 based indexing for # links to match slide number (default is zero
+        // based)
+        hashOneBasedIndex: false,
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: false,
+        // Enable support for jump-to-slide navigation shortcuts
+        jumpToSlide: true,
+        // Push each slide change to the browser history.  Implies `hash: true`
+        history: false,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Optional function that blocks keyboard events when retuning false
+        //
+        // If you set this to 'focused', we will only capture keyboard events
+        // for embedded decks when they are in focus
+        keyboardCondition: null,
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: true,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Loop the presentation
+        loop: false,
+        // Change the presentation direction to be RTL
+        rtl: false,
+        // Changes the behavior of our navigation directions.
+        //
+        // "default"
+        // Left/right arrow keys step between horizontal slides, up/down
+        // arrow keys step between vertical slides. Space key steps through
+        // all slides (both horizontal and vertical).
+        //
+        // "linear"
+        // Removes the up/down arrows. Left/right arrows step through all
+        // slides (both horizontal and vertical).
+        //
+        // "grid"
+        // When this is enabled, stepping left/right from a vertical stack
+        // to an adjacent vertical stack will land you at the same vertical
+        // index.
+        //
+        // Consider a deck with six slides ordered in two vertical stacks:
+        // 1.1    2.1
+        // 1.2    2.2
+        // 1.3    2.3
+        //
+        // If you're on slide 1.3 and navigate right, you will normally move
+        // from 1.3 -> 2.1. If "grid" is used, the same navigation takes you
+        // from 1.3 -> 2.3.
+        navigationMode: 'default',
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+        // Flags if we should show a help overlay when the question-mark
+        // key is pressed
+        help: true,
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+        // Global override for autolaying embedded media (video/audio/iframe)
+        // - null:   Media will only autoplay if data-autoplay is present
+        // - true:   All media will autoplay, regardless of individual setting
+        // - false:  No media will autoplay, regardless of individual setting
+        autoPlayMedia: null,
+        // Global override for preloading lazy-loaded iframes
+        // - null:   Iframes with data-src AND data-preload will be loaded when within
+        //           the viewDistance, iframes with only data-src will be loaded when visible
+        // - true:   All iframes with data-src will be loaded when within the viewDistance
+        // - false:  All iframes with data-src will be loaded only when visible
+        preloadIframes: null,
+        // Can be used to globally disable auto-animation
+        autoAnimate: true,
+        // Optionally provide a custom element matcher that will be
+        // used to dictate which elements we can animate between.
+        autoAnimateMatcher: null,
+        // Default settings for our auto-animate transitions, can be
+        // overridden per-slide or per-element via data arguments
+        autoAnimateEasing: 'ease',
+        autoAnimateDuration: 1.0,
+        autoAnimateUnmatched: true,
+        // CSS properties that can be auto-animated. Position & scale
+        // is matched separately so there's no need to include styles
+        // like top/right/bottom/left, width/height or margin.
+        autoAnimateStyles: ['opacity', 'color', 'background-color', 'padding', 'font-size', 'line-height', 'letter-spacing', 'border-width', 'border-color', 'border-radius', 'outline', 'outline-offset'],
+        // Controls automatic progression to the next slide
+        // - 0:      Auto-sliding only happens if the data-autoslide HTML attribute
+        //           is present on the current slide or fragment
+        // - 1+:     All slides will progress automatically at the given interval
+        // - false:  No auto-sliding, even if data-autoslide is present
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Use this method for navigation when auto-sliding (defaults to navigateNext)
+        autoSlideMethod: null,
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+        // Opens links in an iframe preview overlay
+        // Add `data-preview-link` and `data-preview-link="false"` to customize each link
+        // individually
+        previewLinks: false,
+        // Exposes the reveal.js API through window.postMessage
+        postMessage: true,
+        // Dispatches all reveal.js events to the parent window through postMessage
+        postMessageEvents: false,
+        // Focuses body when page changes visibility to ensure keyboard shortcuts work
+        focusBodyOnPageVisibilityChange: true,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+        // The maximum number of pages a single slide can expand onto when printing
+        // to PDF, unlimited by default
+        pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+        // Prints each fragment on a separate slide
+        pdfSeparateFragments: true,
+        // Offset used to reduce the height of content within exported PDF pages.
+        // This exists to account for environment differences based on how you
+        // print to PDF. CLI printing options, like phantomjs and wkpdf, can end
+        // on precisely the total height of the document whereas in-browser
+        // printing has to end one pixel before.
+        pdfPageHeightOffset: -1,
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+        // The display mode that will be used to show slides
+        display: 'block',
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000
+      });
+      // Override SPACE to play / pause the video
+      Reveal.addKeyBinding(
+        {
+          keyCode: 32,
+          key: 'SPACE',
+          description: 'Play / pause video'
+        },
+        () => {
+          var currentVideos = Reveal.getCurrentSlide().slideBackgroundContentElement.getElementsByTagName("video");
+          if (currentVideos.length > 0) {
+            if (currentVideos[0].paused == true) currentVideos[0].play();
+            else currentVideos[0].pause();
+          } else {
+            Reveal.next();
+          }
+        }
+      );
+    </script>
+  </body>
+</html>

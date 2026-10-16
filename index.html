@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1's Complement: why the carry goes back in</title>
+  <meta name="description" content="An animated presentation, made with Manim, on why 1's complement addition adds the carry back when a sum overflows.">
+  <meta property="og:title" content="1's Complement: why the carry goes back in">
+  <meta property="og:description" content="An animated presentation made with Manim.">
+  <meta property="og:image" content="https://ausdavoud.github.io/1s-Complement-Manim/previews/Carry.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%23f6f3ec'/><text x='32' y='46' font-family='Georgia,serif' font-size='40' text-anchor='middle' fill='%231d1d1f'>1</text></svg>">
+  <style>
+    :root {
+      --paper: #f6f3ec;
+      --ink: #1d1d1f;
+      --muted: #6d6a63;
+      --rule: #d8d2c4;
+      --pen: #b8322a;
+      --serif: Charter, "Bitstream Charter", "Iowan Old Style", Georgia, serif;
+      --mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 19px/1.6 var(--serif);
+      -webkit-font-smoothing: antialiased;
+      display: flex;
+      flex-direction: column;
+    }
+    main { flex: 1; width: 100%; max-width: 720px; margin: 0 auto; padding: 48px 24px 24px;
+      display: flex; flex-direction: column; justify-content: center; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--pen); }
+
+    .byline { margin: 0 0 28px; color: var(--muted); font-size: 15px; letter-spacing: .02em; }
+    h1 { margin: 0; font-weight: 400; font-size: clamp(44px, 8vw, 64px); line-height: 1.05; letter-spacing: -.01em; }
+    .subtitle { margin: 6px 0 22px; font-style: italic; font-size: 24px; color: var(--muted); }
+
+    figure { margin: 28px 0 26px; }
+    figure svg { display: block; width: 100%; max-width: 380px; height: auto; }
+    figcaption { margin-top: 10px; font-size: 15px; color: var(--muted); }
+
+    .go { margin: 0; padding: 0; list-style: none; font-size: 20px; }
+    .go li { margin: 4px 0; }
+    .go a::before { content: "→ "; text-decoration: none; display: inline-block; margin-right: 4px; }
+    .hint { margin: 14px 0 0; font-size: 15px; color: var(--muted); }
+    kbd { font: 13px var(--mono); padding: 0 5px; border: 1px solid var(--rule); border-radius: 4px; background: #fbf9f4; }
+
+
+    footer { width: 100%; max-width: 720px; margin: 0 auto; padding: 0 24px 32px; color: var(--muted); font-size: 15px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="byline">Davoud Nosrati &middot; a presentation, May 2024</p>
+    <h1>1's Complement</h1>
+    <p class="subtitle">Why the carry goes back in</p>
+
+    <p>Add two numbers in 1's complement and sometimes a 1 falls off the left end. You don't throw it away: you add it back to what's left. This presentation, animated with Manim, walks through why that works, case by case.</p>
+
+    <figure>
+      <svg viewBox="0 0 380 230" role="img" aria-label="0101 plus 1100 gives 10001; the leading 1 is carried around and added back, giving 0010.">
+        <defs>
+          <marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0 1 L9 5 L0 9" fill="none" stroke="#b8322a" stroke-width="1.6"/>
+          </marker>
+        </defs>
+        <g font-family="SF Mono, Menlo, Consolas, monospace" font-size="26" fill="#1d1d1f" text-anchor="middle">
+          <text x="92" y="40">0</text><text x="124" y="40">1</text><text x="156" y="40">0</text><text x="188" y="40">1</text>
+          <text x="32" y="78">+</text>
+          <text x="92" y="78">1</text><text x="124" y="78">1</text><text x="156" y="78">0</text><text x="188" y="78">0</text>
+          <text x="60" y="128" fill="#b8322a">1</text>
+          <text x="92" y="128">0</text><text x="124" y="128">0</text><text x="156" y="128">0</text><text x="188" y="128">1</text>
+          <text x="32" y="168" fill="#b8322a">+</text><text x="188" y="168" fill="#b8322a">1</text>
+          <text x="92" y="218">0</text><text x="124" y="218">0</text><text x="156" y="218">1</text><text x="188" y="218">0</text>
+        </g>
+        <g stroke="#1d1d1f" stroke-width="1.2">
+          <line x1="20" y1="94" x2="206" y2="94"/>
+          <line x1="20" y1="184" x2="206" y2="184"/>
+        </g>
+        <path d="M60 138 C 58 178, 118 190, 170 168" fill="none" stroke="#b8322a" stroke-width="1.6" stroke-linecap="round" marker-end="url(#head)"/>
+        <g font-family="Charter, Georgia, serif" font-style="italic" font-size="20" fill="#6d6a63">
+          <text x="238" y="40">5</text>
+          <text x="238" y="78">&#8722;3</text>
+          <text x="238" y="218">2</text>
+        </g>
+        <text x="238" y="150" font-family="Charter, Georgia, serif" font-style="italic" font-size="17" fill="#b8322a">carry, added back</text>
+      </svg>
+      <figcaption>5 + (&#8722;3) in 4-bit 1's complement, the example the presentation opens with.</figcaption>
+    </figure>
+
+    <ul class="go">
+      <li><a href="slides.html">Step through the slides</a></li>
+      <li><a href="1s-complement.mp4">Watch it as one video</a></li>
+    </ul>
+    <p class="hint">In the slides, <kbd>&larr;</kbd> <kbd>&rarr;</kbd> or a swipe moves between steps, and <kbd>F</kbd> goes full screen.</p>
+
+  </main>
+
+  <footer>
+    Made with <a href="https://www.manim.community">Manim</a> and
+    <a href="https://github.com/jeertmans/manim-slides">Manim Slides</a>.
+    Source on <a href="https://github.com/ausdavoud/1s-Complement-Manim">GitHub</a>.
+  </footer>
+</body>
+</html>
