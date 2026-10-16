@@ -1,4 +1,3 @@
-import config
 from manim import *
 from manim_slides import Slide
 

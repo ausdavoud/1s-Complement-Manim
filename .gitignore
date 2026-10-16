@@ -1,7 +1,12 @@
 media
 slides
-.vscode
-ruff.toml
+slides_assets
+slides.html
+site/
 scene/media
 scene/slides
-slides_assets
+.venv/
+__pycache__/
+.vscode
+.DS_Store
+ruff.toml
